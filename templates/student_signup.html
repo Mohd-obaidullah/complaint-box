@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Student Sign Up - ComplaintBox{% endblock %}
+
+{% block content %}
+<div class="max-w-md mx-auto">
+    <div class="bg-white rounded-xl shadow-lg p-8">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">Student Sign Up</h2>
+        <p class="text-center text-gray-600 mb-8">Create your account to get started</p>
+        
+        <form method="POST" class="space-y-6">
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                <input type="text" id="name" name="name" required
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+            </div>
+            
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                <input type="email" id="email" name="email" required
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+            </div>
+            
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                <input type="password" id="password" name="password" required
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+            </div>
+            
+            <div>
+                <label for="college_code" class="block text-sm font-medium text-gray-700 mb-2">College Code <span class="text-xs text-gray-500">(Optional)</span></label>
+                <input type="text" id="college_code" name="college_code" placeholder="Enter 6-digit college code"
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all uppercase" maxlength="6">
+                <p class="mt-1 text-xs text-gray-500">Get this code from your college to connect to your institution</p>
+            </div>
+            
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-all shadow-md hover:shadow-lg transform hover:scale-105">
+                Sign Up
+            </button>
+        </form>
+        
+        <div class="mt-6 text-center">
+            <p class="text-gray-600">Already have an account? 
+                <a href="{{ url_for('student_login') }}" class="text-blue-600 hover:text-blue-700 font-medium">Login</a>
+            </p>
+        </div>
+        
+        <div class="mt-4 text-center">
+            <a href="{{ url_for('forgot_password', user_type='student') }}" class="text-sm text-gray-500 hover:text-gray-700">Forgot Password?</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
